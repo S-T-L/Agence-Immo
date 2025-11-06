@@ -24,7 +24,10 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        //
+        $property = new Property();
+        return view('admin.properties.form', [
+            'property' => new Property()
+        ]);
     }
 
     /**
