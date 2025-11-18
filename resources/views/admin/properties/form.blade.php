@@ -1,4 +1,4 @@
-@ @extends('admin.admin')
+@extends('admin.admin')
 
 @section('title', $property->exists ? 'Editer un bien' : 'Créer un bien ')
 
@@ -6,13 +6,41 @@
 
     <h1>@yield('title')</h1>
 
-    <form action="{{ route($property->exists ? 'admin.property.update' : 'admin.property.store', $property) }}"
+    <form
+        class="vstack gap-2"action="{{ route($property->exists ? 'admin.property.update' : 'admin.property.store', $property) }}"
         method="POST">
 
         @csrf
         @method($property->exists ? 'put' : 'post')
 
-        @include('shared.input', ['label' => 'Titre', 'name' => 'title', 'value' => $property->title])
+        <div class="row">
+            @include('shared.input', [
+                'class' => 'col',
+                'label' => 'Titre',
+                'name' => 'title',
+                'value' => $property->title,
+            ])
+
+            <div class="col row">
+                @include('shared.input', [
+                    'class' => 'col',
+                
+                    'name' => 'surface',
+                    'value' => $property->surface,
+                ])
+                @include('shared.input', [
+                    'class' => 'col',
+                    'label' => 'prix',
+                    'name' => 'price',
+                    'value' => $property->price,
+                ])
+            </div>
+        </div>
+        @include('shared.input', [
+            'type' => 'textarea',
+            'name' => 'description',
+            'value' => $property->description,
+        ])
 
         <div>
             <button class = 'btn btn-primary'>
