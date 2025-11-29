@@ -41,6 +41,56 @@
             'name' => 'description',
             'value' => $property->description,
         ])
+        <div class="row">
+            @include('shared.input', [
+                'class' => 'col',
+                'label' => 'Pièces',
+                'name' => 'rooms',
+                'value' => $property->rooms,
+            ])
+            @include('shared.input', [
+                'class' => 'col',
+                'label' => 'Chambres',
+                'name' => 'bedrooms',
+                'value' => $property->bedrooms,
+            ])
+            @include('shared.input', [
+                'class' => 'col',
+                'label' => 'Etage',
+                'name' => 'floors',
+                'value' => $property->floors,
+            ])
+
+
+
+
+        </div>
+        <div class="row">
+            @include('shared.input', [
+                'class' => 'col',
+                'label' => 'Adresse',
+                'name' => 'adress',
+                'value' => $property->adress,
+            ])
+            @include('shared.input', [
+                'class' => 'col',
+                'label' => 'Ville',
+                'name' => 'city',
+                'value' => $property->city,
+            ])
+            @include('shared.input', [
+                'class' => 'col',
+                'label' => 'Code postal',
+                'name' => 'postal_code',
+                'value' => $property->postal_code,
+            ])
+
+        </div>
+        @include('shared.checkbox', [
+            'label' => 'Loué',
+            'name' => 'rent',
+            'value' => $property->rent,
+        ])
 
         <div>
             <button class = 'btn btn-primary'>
