@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Controller;
 use App\Models\Property;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\OptionController;
 use App\Http\Controllers\Admin\PropertyController;
 
 
@@ -25,4 +26,5 @@ Route::get('/', function () {
 Route::prefix('admin')->name('admin.')->group(function () {
     //Suppression de la methode show dans le controleur / ajout except
     Route::resource('property', PropertyController::class)->except(['show']);
+    Route::resource('option', OptionController::class)->except(['show']);
 });
